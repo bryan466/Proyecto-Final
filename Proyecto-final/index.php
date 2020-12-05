@@ -1,52 +1,25 @@
+<?php
+    include_once "app/movieController.php";
+    $movieController = new movieController();
+    $movies = $movieController->get();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>
             Peliculas Bj
 	</title>
-    <link rel='stylesheet' type='text/css'  href='css/estilos.css?v=0.0.10'/>
-    <script>
-    /**
-     * Array con las imagenes y enlaces que se iran mostrando en la web
-     */
-    var imagenes=new Array(
-        ['img/1.jpg','http://www.lawebdelprogramador.com/cursos/'],
-        ['img/2.jpg','http://www.lawebdelprogramador.com/foros/'],
-        ['img/3.jpg','http://www.lawebdelprogramador.com/pdf/'],
-        ['img/4.jpg','http://www.lawebdelprogramador.com/utilidades/']
-    );
-    var contador=0;
+    <link rel='stylesheet' type='text/css'  href='css/estilos.css?v=0.0.11'/>
+
  
-    /**
-     * Funcion para cambiar la imagen y link
-     */
-    function rotarImagenes()
-    {
-        // cambiamos la imagen y la url
-        contador++
-        document.getElementById("imagen").src=imagenes[contador%imagenes.length][0];
-        document.getElementById("link").href=imagenes[contador%imagenes.length][1];
-    }
- 
-    /**
-     * Función que se ejecuta una vez cargada la página
-     */
-    onload=function()
-    {
-        // Cargamos una imagen aleatoria
-        rotarImagenes();
- 
-        // Indicamos que cada 5 segundos cambie la imagen
-        setInterval(rotarImagenes,5000);
-    }
-</script>
 </head>
 <body>
     <div class="contenedor">
         <div class="header">
                 <div class="logo">
                         <img src="img/icon (1).png"  height="45px">  
-                    </div>
+                </div>
                     
                     <div class="name"> <a  style="color:rgb(8, 123, 165)" href="#">Peliculas Bj</a></div>
                     
@@ -62,16 +35,16 @@
                                 <li><a href="">Drama</a></li>
                                 <li><a href="">Terror</a></li>
                                 <li><a href="">Drama</a></li>
-                               
                                 </ul>  
                             </li>
                             <li><a href="">Estrenos</a></li>
-                            <li><a href="">Inciar sesion</a></li>
-                            <li><a href="">Registrarte</a></li>
+                            <li><a href="login.php" >Inciar sesion</a></li>
+                            <li><a href= "registrarse.php" >Registrarte</a></li>
+                            <li><a href="administrador.php">Admi</a></li>
                             </ul>
                         </nav>
-                
         </div>
+
 
         <div class="slider">
                 <div class="random">
@@ -92,7 +65,7 @@
                     </p>
                     </div>
                     <button class="ver" onclick="location.href='https://repelis.io/pelicula/hubie-halloween-mKSmnv'">  VER PELICULA </button>
-                    <button class="ver2" > VER TRAILER</button>
+                    <button class="ver2" onclick="location.href='https://www.youtube.com/watch?v=M-9Qc_HLa0Y&list=RDM-9Qc_HLa0Y&start_radio=1'"> VER TRAILER</button>
                 </div>
         </div>
         <br>
@@ -171,72 +144,25 @@
                         <br>
                         <table class="tab2">
                             <tr>
-                                <td>
-                                    <div class="view1">
-                                        <img src="img/dark.jpg"   height= "250px" width="172px" >
-                                    </div>
-                    
-                                    <div class= "nomview1">    
-                                        <label>The Dark and the Wicked</label>
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <div class="view2">
-                                        <img src="img/alone.jpg"    height= "250px" width="172px" >
-                                    </div>
-                    
-                                    <div class= "nomview2">    
-                                        <label>Alone</label>
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <div class="view3">
-                                        <img src="img/amigas.jpg"    height= "250px" width="172px" >
-                                    </div>
-                    
-                                    <div class= "nomview3">    
-                                        <label>Friendsgiving</label>
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <div class="view4">
-                                        <img src="img/elcadaver.jpg"   height= "250px" width="172px" >
-                                    </div>
-                    
-                                    <div class= "nomview4">    
-                                        <label>El cadaver</label>
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <div class="view5">
-                                        <img src="img/DB_broly.jpg"  height= "250px" width="172px" >
-                                    </div>
-                    
-                                    <div class= "nomview5">    
-                                        <label>Dragon Ball Super: Broly</label>
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <div class="view6">
-                                        <img src="img/freddy-mercurio.jpg"    height= "250px" width="172px" >
-                                    </div>
-                    
-                                    <div class= "nomview6">    
-                                        <label>Bohemian Rhapsody</label>
-                                    </div>
-                                </td>
+                                <?php $count = 1 ?>
+                                <?php foreach ($movies as $movie): ?>  
+                                    <td>
+                                        <div class='<?= "view".$count ?>'>
+                                            <img src=<?= "img/".$movie['Cover'] ?>  height= "250px" width="175px" >
+                                        </div>
+                        
+                                        <div class='<?= "nomview".$count ?>'>    
+                                            <label><?= $movie['Nombre'] ?></label>
+                                        </div>
+                                    </td>
+                                <?php endforeach ?>
                             </tr>
 
-                            <tr>
+                            <!--<tr>
 
                                 <td>
                                     <div class="view7">
-                                        <img src="img/monster.jpg"   height= "250px" width="172px" >
+                                        <img src="img/monster.jpg"   height= "250px" width="175px" >
                                     </div>
                     
                                     <div class= "nomview7">    
@@ -246,33 +172,344 @@
 
                                 <td>
                                     <div class="view8">
-                                        <img src="img/sos.jpg"   height= "200px" width="132px" >
+                                        <img src="img/sos.jpg"   height= "250px" width="175px" >
                                     </div>
                     
                                     <div class= "nomview8">    
                                         <label>S.O.S. Survive or Sacrifice</label>
                                     </div>
+                                </td>   
+
+                                <!--CODIGO NUEVO SEGUNDO TR 
+                                <td>
+                                    <div class="view9">
+                                        <img src="img/borat.jpg"   height= "250px" width="175px" >
+                                    </div>
+                    
+                                    <div class= "nomview9">    
+                                        <label>Borat</label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="view10">
+                                        <img src="img/candy_corn.jpg"   height= "250px" width="175px" >
+                                    </div>
+                    
+                                    <div class= "nomview10">    
+                                        <label>Candy corn</label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="view11">
+                                        <img src="img/cuaderno-tomy.jpg"   height= "250px" width="175px" >
+                                    </div>
+                    
+                                    <div class= "nomview11">    
+                                        <label>Cuaderno de tommy</label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="view12">
+                                        <img src="img/behid_the__line_escape_to_dunkirk.jpg"   height= "250px" width="175px" >
+                                    </div>
+                    
+                                    <div class= "nomview12">    
+                                        <label>Behid the line escape to dunkirk</label>
                                 </td>
 
                             </tr>
 
+                            <!--CODIGO DE LA TERCAR LINEA DE PELICULAS DE TABLA DE RECOMENDACION 
 
+                             <tr>
 
+                                <td>
+                                    <div class="view13">
+                                        <img src="img/Dreamland.jpg"   height= "250px" width="172px" >
+                                    </div>
 
-                           
+                                    <div class= "nomview13">    
+                                        <label>Dreamland</label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="view14">
+                                        <img src="img/el_secuestro_de_daniel_rye.jpg"   height= "250px" width="175px" >
+                                    </div>
+
+                                    <div class= "nomview14">    
+                                        <label>El secuestro de Daniel Rye</label>
+                                    </div>
+                                </td>   
+
+                            
+                                <td>
+                                    <div class="view15">
+                                        <img src="img/estado_mental.jpg"   height= "250px" width="175px" >
+                                    </div>
+
+                                    <div class= "nomview15">    
+                                        <label>Estado Mental</label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="view16">
+                                        <img src="img/free_solo.jpg"   height= "250px" width="175px" >
+                                    </div>
+
+                                    <div class= "nomview16">    
+                                        <label>SFree solo</label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="view17">
+                                        <img src="img/green_book.jpg"   height= "250px" width="175px" >
+                                    </div>
+
+                                    <div class= "nomview17">    
+                                        <label>Green Book</label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="view18">
+                                        <img src="img/historias_lamentables.jpg"   height= "250px" width="175px" >
+                                    </div>
+
+                                    <div class= "nomview18">    
+                                        <label>Historias Lamentables</label>
+                                    </div>
+                                </td>
+
+                            </tr>-->
                         </table>
-            </div>
+                    <br>
+                    <!--<div class="movie-estreno">
+          
+                    <label class="recientes"> Proximamente </label>
+                        <br>
+                        <br>
+                        <table class="tab3">
+                            <tr>
+                                <td>
+                                    <div class="view19">
+                                        <img src="img/The_Conjuring3_Obligado_por_el_demonio.jpg"   height= "250px" width="175px" >
+                                    </div>
+                    
+                                    <div class= "nomview19">    
+                                        <label>The Conjuring 3</label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="view20">
+                                        <img src="img/intercambio_de_princesas_2.jpg"    height= "250px" width="175px" >
+                                    </div>
+                    
+                                    <div class= "nomview20">    
+                                        <label>Intercambio de princesas 2</label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="view21">
+                                        <img src="img/isla_de_perros.jpg"    height= "250px" width="176px">
+                                    </div>
+                    
+                                    <div class= "nomview21">    
+                                        <label>Isla de perros</label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="view22">
+                                        <img src="img/jui.jpg"   height= "250px" width="176px" >
+                                    </div>
+                    
+                                    <div class= "nomview22">    
+                                        <label>Jui jui</label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="view23">
+                                        <img src="img/la_discusion.jpg"  height= "250px"width="178px" >
+                                    </div>
+                    
+                                    <div class= "nomview23">    
+                                        <label>La discusion</label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="view24">
+                                        <img src="img/mama_te_quiere.jpg"    height= "250px" width="176px" >
+                                    </div>
+                    
+                                    <div class= "nomview24">    
+                                        <label>mama te quiere</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <div class="view25">
+                                        <img src="img/monster_hunter.jpg"   height= "250px" width="175px" >
+                                    </div>
+                    
+                                    <div class= "nomview25">    
+                                        <label>Monster Hunter </label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="view26">
+                                        <img src="img/paddington_2.jpg"    height= "250px" width="175px" >
+                                    </div>
+                    
+                                    <div class= "nomview26">    
+                                        <label>Paddington</label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="view27">
+                                        <img src="img/sed_de_venganza.jpg"    height= "250px" width="176px">
+                                    </div>
+                    
+                                    <div class= "nomview27">    
+                                        <label>Sed de venganza</label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="view28">
+                                        <img src="img/testamento_de_la_abuela.jpg"   height= "250px" width="176px" >
+                                    </div>
+                    
+                                    <div class= "nomview28">    
+                                        <label>Testamento_de_la_abuela</label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="view29">
+                                        <img src="img/transhood_crecer_transgenero.jpg"  height= "250px"width="178px" >
+                                    </div>
+                    
+                                    <div class= "nomview29">    
+                                        <label>Transhood Crecer Transgenero</label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="view30">
+                                        <img src="img/Vilas_seras_lo_que_debas_ser_o_no_seras_nada.jpg"    height= "250px" width="176px" >
+                                    </div>
+                    
+                                    <div class= "nomview30">    
+                                        <label>Vilas seras lo que debas ser</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+</table>
+<</div>
+
+<br>
+<br>
+    <dic class="movie-pro">
+          
+          <label class="recientes2">Estreno proximamente 2021 </label>
+              <br>
+              <br>
+              <table class="tab4">
+                  <tr>
+                      <td>
+                          <div class="view31">
+                              <img src="img/Halloween_kills.jpg"   height= "250px" width="175px" >
+                          </div>
+          
+                          <div class= "nomview31">    
+                              <label>Halloween kills</label>
+                          </div>
+                      </td>
+
+                      <td>
+                          <div class="view32">
+                              <img src="img/los_Croods_2_Una_nueva_era.jpg"    height= "250px" width="175px" >
+                          </div>
+          
+                          <div class= "nomview32">    
+                              <label>Los Croods 2 </label>
+                          </div>
+                      </td>
+
+                      <td>
+                          <div class="view33">
+                              <img src="img/Rumble_la_liga_de_los_monstruos.jpg"    height= "250px" width="176px">
+                          </div>
+          
+                          <div class= "nomview33">    
+                              <label>Rumble </label>
+                          </div>
+                      </td>
+
+                      <td>
+                          <div class="view34">
+                              <img src="img/Sin_tiempo_para_morir.jpg"   height= "250px" width="176px" >
+                          </div>
+          
+                          <div class= "nomview34">    
+                              <label>Sin tiempo para morir</label>
+                          </div>
+                      </td>
+
+                      <td>
+                          <div class="view35">
+                              <img src="img/soul.jpg"  height= "250px"width="178px" >
+                          </div>
+          
+                          <div class= "nomview35">    
+                              <label>Soul</label>
+                          </div>
+                      </td>
+
+                      <td>
+                          <div class="view36">
+                              <img src="img/The_KingsMan_La_primera_misión.jpg"    height= "250px" width="176px" >
+                          </div>
+          
+                          <div class= "nomview36">    
+                              <label>The_KingsMan</label>
+                          </div>
+                      </td>
+                  </tr>
+
+        </table>
+</div>-->
+
+<div class="cuadro">
+        <di class="descp">
+                <p>DMCA page • Nuestros servidores no almacenan ningún vídeo, estos se encuentran alojados en sitios de terceros como .
+                Copyright © Repelis 2020 • Todos los derechos reservados.</p>
+
+        </div>
 </div>
 
 
 
-
-
-
-
-
-
-
+                </div>       
+            </div>
+</div>
 
 
 

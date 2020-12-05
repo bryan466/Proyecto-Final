@@ -1,5 +1,5 @@
-table, th, td {
-    border: 1px solid rgb(0, 0, 0);
+ table,th, td {
+    /*border: 1px solid rgb(0, 0, 0);*/
     border-collapse: collapse;
 }
 ul, ul ,li {
@@ -31,7 +31,7 @@ form{
       .contenedor {
      
         width: 100%;
-        height: 1800px;
+        height: 3200px;
         background-color: rgb(249, 249, 249);
       } 
       
@@ -137,15 +137,27 @@ form{
         color:  #ffffff;
         background-color: #0091ff;
       }
+      /*CODIGO DE DIV DE CADA SECCION DE LA PAGINA*/
       .slider2{
         padding-top:25px;
         margin-left:49px;
         height: 380px;
         width: 1250px;
-        background-color: #f37312;
+      
       }
+      .movie-estreno{
+        height: 650px;
+        width:1249px;
+        
+      }
+         /* FIN DEL  CODIGO DE DIV DE CADA SECCION DE LA PAGINA*/
       .estrenos{
         font-size:23px;
+        margin-top:-35px;
+        margin-bottom:25px;
+      }
+      .recientes2{
+        font-size:19px;
         margin-top:-35px;
         margin-bottom:25px;
       }
@@ -191,7 +203,7 @@ form{
         margin-left:34px;
       }
       .tab2{
-        margin-left:35px;
+        margin-left:1px;
       }
       .recientes{
         margin-left:45px;
@@ -213,14 +225,14 @@ form{
         margin-left:105px;
       }
       .view3{
-        margin-left:35px;
+        margin-left:45px;
       }
       .nomview3{
         font-size:13px;
         margin-left:85px;
       }
       .view4{
-        margin-left:35px;
+        margin-left:43px;
       }
       .nomview4{
         font-size:13px;
@@ -234,7 +246,7 @@ form{
         margin-left:55px;
       }
       .view6{
-        margin-left:35px;
+        margin-left:39px;
       }
       .nomview6{
         font-size:13px;
@@ -247,12 +259,468 @@ form{
       }
       .nomview7{
         font-size:13px;
-        margin-left:35px;
+        margin-left:60px;
       }
       .view8{
         margin-left:35px;
       }
       .nomview8{
         font-size:13px;
-        margin-left:35px;
+        padding-left:50px;
       }
+      .view9{
+        margin-left:43px;
+      }
+      .nomview9{
+        font-size:13px;
+        padding-left:110px;
+      }
+      .view10{
+        margin-left:45px;
+      }
+      .nomview10{
+        font-size:13px;
+        padding-left:100px;
+      }
+      .view11{
+        margin-left:39px;
+      }
+      .nomview11{
+        font-size:13px;
+        padding-left:70px;
+      }
+      .view12{
+        margin-left:39px;
+      }
+      .nomview12{
+        font-size:13px;
+        padding-left:40px;
+      }
+      .view13{
+        margin-left:39px;
+      }
+      .nomview13{
+        font-size:13px;
+        padding-left:90px;
+      }
+      .view14{
+        margin-left:39px;
+      }
+      .nomview14{
+        font-size:13px;
+        padding-left:60px;
+      }
+      .view15{
+        margin-left:39px;
+      }
+      .nomview15{
+        font-size:13px;
+        padding-left:80px;
+      }
+      .view16{
+        margin-left:43px;
+      }
+      .nomview16{
+        font-size:13px;
+        padding-left:95px;
+      }
+      .view17{
+        margin-left:39px;
+      }
+      .nomview17{
+        font-size:13px;
+        padding-left:95px;
+      }
+      .view18{
+        margin-left:39px;
+      }
+      .nomview18{
+        font-size:13px;
+        padding-left:70px;
+      }
+      .view19{
+        margin-left:44px;
+      }
+      .nomview19{
+        font-size:13px;
+        padding-left:70px;
+      }
+      .view20{
+        margin-left:39px;
+      }
+      .nomview20{
+        font-size:13px;
+        padding-left:70px;
+      }
+      .view21{
+        margin-left:39px;
+      }
+      .nomview21{
+        font-size:13px;
+        padding-left:70px;
+      }
+      .view22{
+        margin-left:39px;
+      }
+      .nomview22{
+        font-size:13px;
+        padding-left:70px;
+      }
+      .view23{
+        margin-left:39px;
+      }
+      .nomview23{
+        font-size:13px;
+        padding-left:70px;
+      }
+      .view24{
+        margin-left:39px;
+      }
+      .nomview24{
+        font-size:13px;
+        padding-left:80px;
+      }
+      .view25{
+        margin-left:44px;
+      }
+      .nomview25{
+        font-size:13px;
+        padding-left:80px;
+      }
+      .view26{
+        margin-left:39px;
+      }
+      .nomview26{
+        font-size:13px;
+        padding-left:80px;
+      }
+      .view27{
+        margin-left:39px;
+      }
+      .nomview27{
+        font-size:13px;
+        padding-left:80px;
+      }
+      .view28{
+        margin-left:39px;
+      }
+      .nomview28{
+        font-size:13px;
+        padding-left:55px;
+      }
+      .view29{
+        margin-left:39px;
+      }
+      .nomview29{
+        font-size:13px;
+        padding-left:50px;
+      }
+      .view30{
+        margin-left:39px;
+      }
+      .nomview30{
+        font-size:13px;
+        padding-left:51px;
+      }
+      .view31{
+        margin-left:39px;
+      }
+      .nomview31{
+        font-size:13px;
+        padding-left:80px;
+      }
+      .view32{
+        margin-left:44px;
+      }
+      .nomview32{
+        font-size:13px;
+        padding-left:80px;
+      }
+      .view33{
+        margin-left:39px;
+      }
+      .nomview33{
+        font-size:13px;
+        padding-left:80px;
+      }
+      .view34{
+        margin-left:39px;
+      }
+      .nomview34{
+        font-size:13px;
+        padding-left:80px;
+      }
+      .view35{
+        margin-left:39px;
+      }
+      .nomview35{
+        font-size:13px;
+        padding-left:108px;
+      }
+      .view36{
+        margin-left:39px;
+      }
+      .nomview36{
+        font-size:13px;
+        padding-left:85px;
+      }
+      .cuadro{
+      height :70px;
+      width: 1350px;
+     background-color:rgb(242, 73, 73);
+      }
+      .descp{
+        margin-left:15px;
+       font-size:18px;
+       position: center;
+        }
+/*CODIFO DEL SCRIPT DE INICIAR SESION*/
+        .ventana{
+            background-color: rgb(242, 73, 73);
+            height: 250px;
+            width:300px;
+            color:#ffffff;
+            Font-family: Helvetica, sans-serif;
+            Font-size:18px;
+            text-align:center;
+            padding:33px;
+            min-height:250px;
+            border-radius:7px;
+            margin-left:80px;
+            margin-top:35px;
+            display:none;
+        }
+        .tin{
+          Font-size:18px;
+
+        }
+        .tnom{
+          Font-size:14px;
+          margin-left:5px;
+        }
+        .tpass{
+          margin-left:15px;
+        }
+        /*------------------------------------
+
+        *{
+          margin:0;
+          padding:0;
+          box-sizing:border-box;
+          font-family: sans-serif;
+        }
+        body{
+          background:url("fondo.jpg");
+          background-size: 100vw 100vh;
+        }
+        body, .modal{
+          width: 100%;
+          height: 100vh;
+          display: flex;
+          justify-content:center;
+          align-items:center;
+        }
+        .modal{
+          position: fixed;
+          top: 0;
+          left: 0;
+          background: rgba(0,0,0,0.5);
+          transition:all 500ms ease;
+        }
+
+        .ventana{
+          width: 400px;
+          height: 300px;
+          margin:auto;
+          background: #ffffff;
+          box-shadow:1 px 7px 25px rgba(0,0,0,0.6);
+          transition:all 500ms ease;
+        }
+        .ventana label{
+          position: absolute;
+          top: 10px;
+          right:10px;
+          color:#fff;
+        }
+*/
+.soul{
+height: 250px;
+width:150px;
+background:aqua;
+opacity:1;
+position: relative;
+
+
+}
+/*---------------------------------------CODIGO DE LA VENTANA DE LOGIN-------------------------------------------*/
+
+.contenerdorlogin{
+  width: 100%;
+  height: 900px;
+  background-color: rgb(249, 249, 249);
+
+}
+.ContentForm{
+  height: 300px;
+  width:205px;
+  background-color:rgb(150,46,90);
+  margin-left:570px;
+  margin-top:-440px;
+  padding-left:10px;
+  padding-right:10px;
+  padding-top:10px;
+  padding-bottom:10px;
+  position:relative;
+}
+.titulo1{
+  font-size: 15px;
+  color:white;
+  margin-left:8px;
+}
+.titulo2{
+  font-size: 15px;
+  color:white;
+  margin-left:7px;
+}
+.form-control{
+    height:15px;
+    margin-top:-20px;
+}
+
+.form-control2{
+  height:15px;
+  margin-top:-20px;
+}
+
+.etq{
+  text-align: center;
+  color:white;
+  font-size:30px;
+}
+
+.btn-in{
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:10px;
+  padding-right:10px;
+  background-color:rgb(150,46,90);
+  color:white;
+  font-size:15px;
+  margin-left:65px;
+}
+.btn-in:hover{
+  background-color: rgb(40, 89, 91);
+}
+
+.btn-sa{
+  margin-top:20px;
+  margin-left:20px;
+}
+
+
+
+.header2{
+  height: 50px;
+  width: 1365px;
+  color: rgb(93, 91, 91);
+  background-color:  rgb(93, 91, 91);
+  position: fixed;
+  margin-top:-680px;
+}
+
+.fonfp{
+  opacity:0.7;
+filter:alpha(opacity=40);
+}
+/*-------------------------------------------------------------------------------------------*/
+
+.header3{
+  height: 50px;
+  width: 1365px;
+  color: rgb(93, 91, 91);
+  background-color:  rgb(93, 91, 91);
+  position: fixed;
+  margin-top:-680px;
+}
+
+.ContentForm3{
+  height: 487px;
+  width:330px;
+  background-color:rgb(150,46,90);
+  margin-left:500px;
+  margin-top:-570px;
+  padding-left:10px;
+  padding-right:10px;
+  padding-top:10px;
+  padding-bottom:10px;
+  position:relative;
+}
+
+.titulo1{
+  font-size: 15px;
+  color:white;
+  margin-left:8px;
+}
+.titulo2{
+  font-size: 15px;
+  color:white;
+  margin-left:7px;
+}
+.form-control3{
+    height:15px;
+    margin-top:-20px;
+}
+.form-control4{
+  height:15px;
+  margin-left:10px;
+  margin-top:-20px;
+}
+.form-control5{
+  height:15px;
+  margin-left:5px;
+  margin-top:-20px;
+}
+.form-control6{
+  height:15px;
+   margin-left:31px;
+  margin-top:-20px;
+}
+.form-control7{
+  height:15px;
+  margin-left:10px;
+  margin-top:-20px;
+}
+.form-control8{
+  height:15px;
+  margin-left:23px;
+  margin-top:-20px;
+}
+.form-control9{
+  height:15px;
+  margin-top:-20px;
+  margin-left:10px;
+}
+.etq2{
+  text-align: center;
+  color:white;
+  font-size:30px;
+  margin-left:100px;
+}
+
+.btn-in2{
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:10px;
+  padding-right:10px;
+  background-color:rgb(150,46,90);
+  color:white;
+  font-size:15px;
+  margin-left:95px;
+}
+.btn-in2:hover{
+  background-color: rgb(40, 89, 91);
+}
+
+
+
+
