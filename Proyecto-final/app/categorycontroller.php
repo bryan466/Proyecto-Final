@@ -18,7 +18,8 @@ if (isset($_POST['action'])) {
 
 			$categoryController->store($name,$description,$status);
 
-		break; 
+		break;
+
 		case 'update':
 
 			$name = strip_tags($_POST['name']);
@@ -28,6 +29,7 @@ if (isset($_POST['action'])) {
 
 			$categoryController->update($id,$name,$description,$status);
 		break;
+		
 		case 'destroy':
 
 			$id = strip_tags($_POST['id']);
@@ -35,7 +37,6 @@ if (isset($_POST['action'])) {
 			$categoryController->destroy($id);
 		break;
 	}
-
 }
 
 class CategoryController
@@ -81,21 +82,16 @@ class CategoryController
 				}else{
 
 					$_SESSION['error'] = 'verifique los datos envíados';
-
 					header("Location:". $_SERVER['HTTP_REFERER'] );
 				}
 
 			}else{
-
 				$_SESSION['error'] = 'verifique la información del formulario';
-
 				header("Location:". $_SERVER['HTTP_REFERER'] );
 			}
 
 		}else{
-
 			$_SESSION['error'] = 'verifique la conexión a la base de datos';
-
 			header("Location:". $_SERVER['HTTP_REFERER'] );
 		}
 	}
@@ -127,6 +123,7 @@ class CategoryController
 		}
 	}
 
+
 	public function destroy($id)
 	{
 		$conn = connect();
@@ -154,5 +151,4 @@ class CategoryController
 		}
 	}
 }
-
 ?>

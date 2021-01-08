@@ -21,7 +21,15 @@
                 $contra = strip_tags($_POST['contra']);
 
                 $authController->registrar($nombre, $correo, $contra);
-            break;                        
+            break; 
+            case 'categoria':
+                $name = strip_tags($_POST['name']);
+                $description = strip_tags($_POST['description']);
+                $status = strip_tags($_POST['status']);
+                $created_at = strip_tags($_POST['created_at']);
+
+                $authController->categoria($name, $description,$status,$created_at);
+            break;                       
         }
     }
 
@@ -51,7 +59,6 @@ class AuthController
             header("Location:".$_SERVER["HTTP_REFERER"]);
         }
     }
-
 	public function acceder($correo, $contra)
 	{
         $conn = connect();
@@ -67,14 +74,15 @@ class AuthController
                     $_SESSION['id'] = $user[0]['id'];
                     $_SESSION['nombre'] = $user[0]['Nombre'];
                     $_SESSION['correo'] = $user[0]['Correo'];
-                    $_SESSION['role'] = $user[0]['roles'];
+                    $_SESSION['role'] = $user[0]['role'];
                     if ($_SESSION['role']=="admin") {
-                        header("Location:"."../admin");
+                        header("Location:"."../administrador.php");
+
                     }else{
+                       
                         header("Location:"."../index.php");
                     }
-                }
-                else{
+                }else{
                     $_SESSION['error'] = 'Los datos de inicio de sesion son incorrectos';
                     header("Location:".$_SERVER["HTTP_REFERER"]);
                 }
@@ -85,6 +93,50 @@ class AuthController
             header("Location:".$_SERVER["HTTP_REFERER"]);
         }
     }
+
+    
+    public function categoria($name, $descripcion,$status,$created_at)
+    {
+        $conn = connect();
+        if (!$conn->connect_error){
+            if($name!="" && $descripcion!="" && $status!="" && $created_at!=""){
+                
+                $query = "insert into categories(name, description,status,created_at) VALUES(?,?,?,?)";
+                $prepared_query = $conn->prepare($query);
+                $prepared_query->bind_param('ssss',$name, $description,$status,$created_at);
+                if ($prepared_query->execute()){
+                    $this->categoria($name, $description,$status,$created_at);
+                }
+            }else{
+                $_SESSION['error'] = 'Los datos de inicio de sesion son incorrectos';
+                header("Location:".$_SERVER["HTTP_REFERER"]);
+            }
+        }else{
+            $_SESSION['error'] = 'Verifica si los datos de la BD son correctos';
+            header("Location:".$_SERVER["HTTP_REFERER"]);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 

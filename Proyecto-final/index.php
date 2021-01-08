@@ -10,9 +10,11 @@
 	<title>
             Peliculas Bj
 	</title>
-    <link rel='stylesheet' type='text/css'  href='css/estilos.css?v=0.0.11'/>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link rel='stylesheet' type='text/css'  href='css/estilos.css?v=0.0.14'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
 
- 
 </head>
 <body>
     <div class="contenedor">
@@ -34,7 +36,7 @@
                                 <li><a href="">Ciencia ficcion</a></li>
                                 <li><a href="">Drama</a></li>
                                 <li><a href="">Terror</a></li>
-                                <li><a href="">Drama</a></li>
+                            
                                 </ul>  
                             </li>
                             <li><a href="">Estrenos</a></li>
@@ -139,7 +141,7 @@
         <br>
         <dic class="movie">
             <div class="movies">
-                    <label class="recientes">Péliculas estrenadas recientemente</label>
+                    <label class="recientes">  Péliculas estrenadas recientemente </label>
                         <br>
                         <br>
                         <table class="tab2">
@@ -158,7 +160,7 @@
                                 <?php endforeach ?>
                             </tr>
 
-                            <!--<tr>
+                            <tr>
 
                                 <td>
                                     <div class="view7">
@@ -180,7 +182,7 @@
                                     </div>
                                 </td>   
 
-                                <!--CODIGO NUEVO SEGUNDO TR 
+                                <!--CODIGO NUEVO SEGUNDO TR -->
                                 <td>
                                     <div class="view9">
                                         <img src="img/borat.jpg"   height= "250px" width="175px" >
@@ -222,7 +224,7 @@
 
                             </tr>
 
-                            <!--CODIGO DE LA TERCAR LINEA DE PELICULAS DE TABLA DE RECOMENDACION 
+                           <!-- CODIGO DE LA TERCAR LINEA DE PELICULAS DE TABLA DE RECOMENDACION -->
 
                              <tr>
 
@@ -290,7 +292,7 @@
                             </tr>-->
                         </table>
                     <br>
-                    <!--<div class="movie-estreno">
+                    <!--div class="movie-estreno"-->
           
                     <label class="recientes"> Proximamente </label>
                         <br>
@@ -422,7 +424,7 @@
                             </tr>
 
 </table>
-<</div>
+</div>
 
 <br>
 <br>
@@ -495,12 +497,11 @@
                   </tr>
 
         </table>
-</div>-->
+</div>
 
 <div class="cuadro">
         <di class="descp">
-                <p>DMCA page • Nuestros servidores no almacenan ningún vídeo, estos se encuentran alojados en sitios de terceros como .
-                Copyright © Repelis 2020 • Todos los derechos reservados.</p>
+                <p>Nuestros servidores no almacenan ningún vídeo, estos se encuentran alojados en sitios de terceros  • Todos los derechos reservados.</p>
 
         </div>
 </div>

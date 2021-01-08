@@ -1,20 +1,59 @@
+<?php 
+	include "../app/categorycontroller.php";
+	$categorycontroller = new categorycontroller();
+
+	$categories = $categorycontroller->get();
+
+	if (isset($_SESSION)==false || 
+		isset($_SESSION['id'])==false) {
+		
+		header("Location:../");
+	}
+?>
+	
+	
 <!DOCTYPE html>
 <html>
 <head>
 	<title>
-		Categories
+            Peliculas Bj
 	</title>
-	<style type="text/css">
-		table, th, td {
-			border: 1px solid black;
-			border-collapse: collapse;
-		}
-		#updateForm{
-			display: none;
-		}
-	</style>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link rel='stylesheet' type='text/css'  href='css/estilos.css?v=0.0.14'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
 </head>
 <body>
+		<div class="menu-lateral">
+				<div class="logo2">
+				<img src="img/icon (1).png"  height="50px">  
+				</div>
+				<br>
+				<div class="name2"> <a   href="#">Peliculas Bj</a></div><br>
+				<div  class="lista-menu">
+					<ul class="lista-menu-1">
+						<strong><li><a href="index.php"  style="color:#FF0000;" >Inicio</a></li></strong><br>
+						<strong><li><a href="peliculas.php"  style="color:#FF0000;">Configurar peliculas</a></li></strong><br>
+						<strong><li><a href="categories.php"  style="color:#FF0000;">Configurar categorias</a></li></strong><br>
+						<strong><li><a href="login.php"  style="color:#FF0000;" >Inciar sesion</a></li></strong>
+					</ul>
+				</div>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+         </div>
+
+
+
+
+
+
+	
 	<div>
 
 		<h1>
@@ -63,206 +102,44 @@
 			</thead>
 			<tbody>
 
-				<?php foreach ($categories as $category): ?>
+				<?php 
 
-				<tr>
+				// foreach ($categories as $category) {
 					
-					<td>
-						<?= $category['id'] ?>
-					</td>
-					<td>
-						<?= $category['name'] ?>
-					</td>
-					<td>
-						<?= $category['description'] ?>
-					</td>
-					<td>
-						<button onclick="edit(<?= $category['id'] ?>,'<?= $category['name'] ?>','<?= $category['description'] ?>','<?= $category['status'] ?>')">
-							Edit category
-						</button>
+				// 	echo "<tr>
+					
+				// 		<td>
+				// 			".$category['id']."
+				// 		</td>
+				// 		<td>
+				// 			".$category['name']."
+				// 		</td>
+				// 		<td>
+				// 			".$category['description']."
+				// 		</td>
 
-						<button onclick="remove(<?= $category['id'] ?>)" style="background-color: red;color:white;">
-							Delete category
-						</button>
-					</td>
+				// 		<td>
+				// 			<button onclick='edit(".$category['id'].",\"".$category['name']."\",\"".$category['description']."\",\"".$category['status']."\")' >
+				// 				Edit category
+				// 			</button>
 
-				</tr>
+				// 			<button onclick='delete(".$category['id'].")' > Delete category </button>
+
+				// 		</td>
+
+				// 	</tr>";
+
+				// }
+
+
+				?> 
 
 			</tbody>
 		</table>
 
-		<?php 
-	include "../app/categoryController.php";
-	include "../app/movieController.php";
+		
 
-	$categoryController = new CategoryController();
-	$movieController = new MovieController();
-
-	$categories = $categoryController->get();
-	$movies = $movieController->get();
-
-	// if (!isset($_SESSION['id']) || $_SESSION['role'] != "admin") {
-	// 	header("Location:../");
-	// }
-
-	#echo json_encode($movies);
-?>
-<fieldset>
-		<legend> Movies </legend>
-	
-	<?php include "../layouts/alerts.template.php"; ?>
-
-	<table>
-		<thead>
-			<th>
-				#
-			</th>
-			<th>
-				title
-			</th>
-			<th>
-				cover
-			</th>
-			<th>
-				minutes
-			</th>
-			<th>
-				category
-			</th>
-		</thead>
-		<tbody>
-			<?php foreach ($movies as $movie): ?>
-			<tr>
-				<td>
-					<?= $movie['id'] ?>
-				</td>
-				<td></td>
-				<td>
-					<img style="width: 10%" src="../assets/img/movies/<?= $movie['cover'] ?>">
-				</td>
-				<td>
-					<a href="details/?id=<?= $movie['id'] ?>">
-						show details
-					</a>
-				</td>
-
-			</tr>
-			<?php endforeach ?>
-		</tbody>
-	</table>
-
-	<form action="../app/movieController.php" method="POST" enctype="multipart/form-data" >
-		<fieldset>
-			<legend>
-				Add Movie
-			</legend>
-
-
-			<label>
-				Title
-			</label>
-			<input type="text" name="title" placeholder="movie name" required="">
-
-			<br>
-
-			<label>
-				Description
-			</label>
-			<textarea name="descripiton" rows="5" placeholder="Description" required=""></textarea>
-
-			<br>
-
-			<label>
-				Cover
-			</label>
-			<input type="file" name="cover" required="" accept="image/*">
-
-			<br>
-
-			<label>
-				Minutes
-			</label>
-			<input type="number" name="minutes" placeholder="80" required="">
-			
-			<br>
-
-			<label>
-				Clasification
-			</label>
-			<select  name="clasification" required="">
-				<option> B15 </option>
-				<option> BA </option>
-			</select>
-			<br>
-
-
-			<label>
-				Category
-			</label>
-			<select  name="category_id" required=""> 
-				<?php foreach ($categories as $category): ?>
-
-				<option value="<?= $category['id'] ?>" >
-					<?= $category['name'] ?>
-				</option>
-
-				<?php endforeach ?>
-
-				<?php 
-				// foreach ($categories as $category) {
-				// 	echo "<option value=".$category['id']." >". $category['name'] ."</option>";
-				// } 
-				?>
-			</select>
-			<br>
-
-			<button type="submit">
-				Save
-			</button>
-			<input type="hidden" name="action" value="store">
-
-		</fieldset>
-	</form>
-
-	</fieldset>
-
-
-
-		<form id="storeForm" action="../app/categoryController.php" method="POST">
-			<fieldset>
-				
-				<legend>
-					Add new Category
-				</legend>
-
-				<label>
-					Name
-				</label>
-				<input type="text"  name="name" placeholder="terror" required=""> 
-				<br>
-
-				<label>
-					Description
-				</label>
-				<textarea placeholder="write here" name="description" rows="5" required=""></textarea>
-				<br>
-
-				<label>
-					Status
-				</label>
-				<select name="status">
-					<option> active </option>
-					<option> inactive </option>
-				</select>
-				<br>
-
-				<button type="submit" >Save Category</button>
-				<input type="hidden" name="action" value="store">
-
-			</fieldset>
-		</form>
-
-		<form id="updateForm" action="../app/categoryController.php" method="POST">
+		<form id="updateForm" action="../app/categorycontroller.php" method="POST">
 			<fieldset>
 				
 				<legend>
@@ -297,7 +174,7 @@
 			</fieldset>
 		</form>
 
-		<form id="destroyForm" action="../app/categoryController.php" method="POST">
+		<form id="destroyForm" action="../app/categorycontroller.php" method="POST">
 
 			<input type="hidden" name="action" value="destroy">
 			<input type="hidden" name="id" id="id_destroy">
@@ -305,6 +182,9 @@
 		</form>
 
 	</div>
+
+
+
 	<script type="text/javascript">
 		function edit(id,name,description,status)
 		{	
@@ -327,5 +207,8 @@
 			}
 		}
 	</script>
+
+
 </body>
+
 </html>
